@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         if (googleSignInAccount != null) {
           // Google Sign In successful, authenticate with Firebase
           final AuthCredential credential = GoogleAuthProvider.credential(
-            idToken: googleSignInAccount.idToken,
+            // idToken: googleSignInAccount.idToken,
           );
           await FirebaseAuth.instance.signInWithCredential(credential);
           Navigator.pushNamed(context, '/home');

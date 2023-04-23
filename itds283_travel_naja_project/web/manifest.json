@@ -1,6 +1,6 @@
 {
-    "name": "itds283_travel_naja_project",
-    "short_name": "itds283_travel_naja_project",
+    "name": "itds283_travelnaja_flutter_application",
+    "short_name": "itds283_travelnaja_flutter_application",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

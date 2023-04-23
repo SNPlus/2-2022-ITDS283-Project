@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  animations:
+    dependency: "direct main"
+    description:
+      name: animations
+      sha256: fe8a6bdca435f718bb1dc8a11661b2c22504c6da40ef934cee8327ed77934164
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.7"
   async:
     dependency: transitive
     description:
@@ -113,6 +121,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  firebase_database:
+    dependency: "direct main"
+    description:
+      name: firebase_database
+      sha256: "39e4fe701ffc9e6d963018348c4bfcf989671c1eb9f29c04663a4e7130c2107c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.1.1"
+  firebase_database_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_database_platform_interface
+      sha256: "0490b234c72e84cc8b35991a7c02956e58f9fb52fd1705a5fb80d2b434d60078"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3+1"
+  firebase_database_web:
+    dependency: transitive
+    description:
+      name: firebase_database_web
+      sha256: c3ab578fd2bf0fe6d4af61554e325b1f629c769cb61d509162f2d5942fa2c983
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2+1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -136,56 +168,8 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  google_identity_services_web:
-    dependency: transitive
-    description:
-      name: google_identity_services_web
-      sha256: "7940fdc3b1035db4d65d387c1bdd6f9574deaa6777411569c05ecc25672efacd"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1"
-  google_sign_in:
-    dependency: "direct main"
-    description:
-      name: google_sign_in
-      sha256: "776a4c988dc179c3b8e9201de0ad61bf350a4e75d378ff9d94c76880378c7bca"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.1.0"
-  google_sign_in_android:
-    dependency: transitive
-    description:
-      name: google_sign_in_android
-      sha256: "8e46e791f54ce83c05dcc41430bba943c3aafc49b9b867c4d10b395968398b4a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.1.11"
-  google_sign_in_ios:
-    dependency: transitive
-    description:
-      name: google_sign_in_ios
-      sha256: "2e1df687b17f7fddcaf9a0c7f994d0d19b5d41e8ce1d943013befd0a0ae67403"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.6.1"
-  google_sign_in_platform_interface:
-    dependency: transitive
-    description:
-      name: google_sign_in_platform_interface
-      sha256: "95a9e0a8701b5485f2ca330fd1fc6f918f5ce088042ce1019c5e389d8574ae4c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.0"
-  google_sign_in_web:
-    dependency: transitive
-    description:
-      name: google_sign_in_web
-      sha256: "7e0ec507f4752383a6daa67d0cc775253cfc3b1d87907e7004e2c1b99c0a723f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.12.0"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       sha256: "6aa2946395183537c8b880962d935877325d6a09a2867c3970c05c0fed6ac482"
@@ -264,14 +248,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  quiver:
-    dependency: transitive
-    description:
-      name: quiver
-      sha256: b1c1ac5ce6688d77f65f3375a9abb9319b3cb32486bdc7a1e0fdf004d7ba4e47
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.2.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -343,4 +319,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.2 <3.0.0"
-  flutter: ">=3.3.0"
+  flutter: ">=3.0.0"

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:itds283_travel_naja_project/page/landing_page.dart';
-import 'package:itds283_travel_naja_project/page/login_page.dart';
-import 'package:itds283_travel_naja_project/page/register_info_page.dart';
+import 'package:itds283_travelnaja_flutter_application/page/myloginpage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,14 +21,15 @@ class MyApp extends StatelessWidget {
       ),
       routes: <String, WidgetBuilder>{
         "/": (BuildContext context) => LoginPage(),
-        "/landing": (BuildContext context) => const LandingPage(),
-        "/login": (BuildContext context) => LoginPage(),
-        "/register": (BuildContext context) => RegisterInfoPage(),
+        // "/landing": (BuildContext context) => const LandingPage(),
+        // // "/login": (BuildContext context) => LoginPage(),
+        // "/register": (BuildContext context) => RegisterInfoPage(),
+        // "/testlogin": (BuildContext context) => LoginPage(),
 
         // "auth" :(BuildContext context) => const  Auth()
         // "/home": (BuildContext context) => const HomePage(),
       },
-      initialRoute: "/login",
+      initialRoute: "/",
       debugShowCheckedModeBanner: false,
     );
   }

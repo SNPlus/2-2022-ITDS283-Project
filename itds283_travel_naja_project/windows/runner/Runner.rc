@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "itds283_travel_naja_project" "\0"
+            VALUE "FileDescription", "itds283_travelnaja_flutter_application" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "itds283_travel_naja_project" "\0"
+            VALUE "InternalName", "itds283_travelnaja_flutter_application" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "itds283_travel_naja_project.exe" "\0"
-            VALUE "ProductName", "itds283_travel_naja_project" "\0"
+            VALUE "OriginalFilename", "itds283_travelnaja_flutter_application.exe" "\0"
+            VALUE "ProductName", "itds283_travelnaja_flutter_application" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,4 +1,4 @@
-# itds283_travel_naja_project
+# itds283_travelnaja_flutter_application
 
 A new Flutter project.
 

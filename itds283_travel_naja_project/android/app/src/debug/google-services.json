@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641994826117",
+    "project_id": "travelnaja-flutter-project",
+    "storage_bucket": "travelnaja-flutter-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641994826117:android:e10b08a426d98684e324ec",
+        "android_client_info": {
+          "package_name": "com.example.itds283_travel_naja_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641994826117-2it0obanl398fcv12kptpsvkj3mboepv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6n-SgW_ZU4URinxY9bIfw5x9j4rq0shg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641994826117-2it0obanl398fcv12kptpsvkj3mboepv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
