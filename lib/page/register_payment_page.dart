@@ -211,7 +211,7 @@ class RegisterPayment extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage(email: (email),password: (user_password.text),
+                              builder: (context) => RegisterPage(
                                   )),
                         );
                       },

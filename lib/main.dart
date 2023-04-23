@@ -31,9 +31,8 @@ class MyApp extends StatelessWidget {
               email: '',
               password: '',
             ),
-        "/register": (BuildContext context) => RegisterInfoPage(
-              email: '',
-              password: '',
+        "/register": (BuildContext context) => RegisterPage(
+              
             ),
         "/detail": (BuildContext context) => HotelDetail(image: '',name: '',location: '',description: '',price: '',rating: '',Recently_booked:'',
               )

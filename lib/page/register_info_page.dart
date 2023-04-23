@@ -1,200 +1,146 @@
 import 'package:flutter/material.dart';
-import 'package:itds283_travel_naja_project/page/register_payment_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class RegisterInfoPage extends StatelessWidget {
-  final String email;
-  final String password;
-  RegisterInfoPage({super.key, required this.email ,required this.password});
-  //สร้าง Text Controller
-  TextEditingController user_email = TextEditingController();
-  TextEditingController user_password = TextEditingController();
-  TextEditingController user_email1 = TextEditingController();
+import 'profile_user_1.dart';
+import 'register_payment_page.dart';
+
+class RegisterPage extends StatefulWidget {
+  @override
+  _RegisterPageState createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  String _errorMessage = '';
+
+  void _onRegisterButtonPressed() async {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+    String confirmPassword = _confirmPasswordController.text;
+
+    if (email.isNotEmpty && password.isNotEmpty && confirmPassword.isNotEmpty) {
+      if (password == confirmPassword) {
+        try {
+          // Create a new user account with Firebase authentication
+          UserCredential result = await _auth.createUserWithEmailAndPassword(
+            email: email,
+            password: password,
+          );
+          User? user = result.user;
+
+          // You can perform additional actions with the user object here,
+          // such as updating user profile information, sending email verification, etc.
+
+          print('User registered successfully: ${user!.email}');
+          // Navigate to the next page after successful registration
+          // You can customize this based on your application flow
+        } on FirebaseAuthException catch (e) {
+          setState(() {
+            _errorMessage = e.message!; // Update error message if any
+          });
+        }
+      } else {
+        // Show a Snackbar with error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Password and Confirm Password do not match'),
+          ),
+        );
+      }
+    } else {
+      setState(() {
+        _errorMessage = 'All fields are required';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: BackButton(),
-        backgroundColor: Color.fromARGB(0, 255, 255, 255),
-        elevation: 0,iconTheme: IconThemeData(
-    color: Color.fromARGB(255, 255, 255, 255), // set the color of the back button icon
-  ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 3, 14, 94),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: TextField(
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  prefixIcon: Icon(Icons.email),
+                ),
               ),
-              height: MediaQuery.of(context).size.height * 0.20,
-              width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 70 ,right: 160),
-              child: Column(children: const [
-                Text(
-                  "Join Our Community",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    fontWeight: FontWeight.bold,
-                  ),),
-              
-                Padding(
-                  padding: EdgeInsets.only(top:20,right: 40),
+            ),
+            SizedBox(height: 16),
+            TextField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                prefixIcon: Icon(Icons.lock),
+              ),
+            ),
+            SizedBox(height: 16),
+            TextField(
+              controller: _confirmPasswordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Confirm Password',
+                prefixIcon: Icon(Icons.lock),
+              ),
+            ),
+            SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: _onRegisterButtonPressed,
+              child: Text('REGISTER'),
+            ),
+            SizedBox(height: 16),
+            Text(
+              _errorMessage,
+              style: TextStyle(color: Colors.red),
+            ),
+            SizedBox(
+              width: 250.0,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage(
+                                email: '',
+                                password: '',
+                              )),
+                    );
+                  },
                   child: Text(
-                    "Get full access today.",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontWeight: FontWeight.bold,
-                          ),),
-                ),]),),),),
-        const Padding(
-          padding: EdgeInsets.only(top:180,left: 25),
-          child: Text(
-                    "USER INFORMATION",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.bold,))),
-        const Padding(
-          padding: EdgeInsets.only(top:230,left: 25),
-          child: Text(
-                    "Full Name",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.bold,))),
-        const Padding(
-          padding: EdgeInsets.only(top:260,left: 25),
-          child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    // controller: user_email,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      filled: true, 
-                      fillColor: Color.fromARGB(255, 255, 255, 255),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(width: 5),
-                        // borderRadius: BorderRadius.circular(50)
-                      ),
-                      labelText: 'Full Name',
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                      'Sign Up'),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
-                  ),
-                ),),
-        const Padding(
-          padding: EdgeInsets.only(top:330,left: 25),
-          child: Text(
-                    "Country",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.bold,))),
-        const Padding(
-          padding: EdgeInsets.only(top:350,left: 25),
-          child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      filled: true, 
-                      fillColor: Color.fromARGB(255, 255, 255, 255),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(width: 5),
-                        // borderRadius: BorderRadius.circular(50)
-                      ),
-                      labelText: 'Country',
-                    ),
-                  ),
-                ),),
-        const Padding(
-          padding: EdgeInsets.only(top:440,left: 25),
-          child: Text(
-                    "SECURITY",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.bold,))),
-        const Padding(
-          padding: EdgeInsets.only(top:480,left: 25),
-          child: Text(
-                    "Email",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.bold,))),
-         Padding(
-          padding: EdgeInsets.only(top:500,left: 25),
-          child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    controller: user_email1,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      filled: true, 
-                      fillColor: Color.fromARGB(255, 255, 255, 255),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(width: 5),
-                        // borderRadius: BorderRadius.circular(50)
-                      ),
-                      labelText: 'Email',
-                    ),
-                  ),
-                ),),
-        const Padding(
-          padding: EdgeInsets.only(top:560,left: 25),
-          child: Text(
-                    "Password",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.bold,))),
-        const Padding(
-          padding: EdgeInsets.only(top:580,left: 25),
-          child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      filled: true, 
-                      fillColor: Color.fromARGB(255, 255, 255, 255),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(width: 5),
-                        // borderRadius: BorderRadius.circular(50)
-                      ),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),),
-        SizedBox(
-                  width: 325.0,
-                    child: Padding(
-                    padding: const EdgeInsets.only(top:650,left: 25),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPayment(
-                                    email: (user_email1.text),password: (user_password.text),
-                                  )),
-                        );
-                      },
-                      child: Text('NEXT', style: TextStyle(color: Colors.white)),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                        primary:
-                            Color.fromARGB(255, 3, 14, 94), // Background color
-                      ),
-                    ),
+                    primary: Color.fromARGB(255, 3, 14, 94), // Background color
                   ),
                 ),
-        ]),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -6,6 +6,8 @@ import 'package:itds283_travel_naja_project/page/login_page.dart';
 // import 'package:week12/page/home_page.dart';
 import 'package:itds283_travel_naja_project/page/register_info_page.dart';
 
+import 'register_payment_page.dart';
+
 class profile_guest_1 extends StatelessWidget {
   profile_guest_1({Key? key}) : super(key: key);
   TextEditingController user_email = TextEditingController();
@@ -81,8 +83,8 @@ class profile_guest_1 extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                              builder: (context) => RegisterInfoPage(
-                                    email: (user_email.text),password: (user_password.text),
+                              builder: (context) => RegisterPayment(email: '', password: '',
+                                    
                                   )),
                         );
                       },
