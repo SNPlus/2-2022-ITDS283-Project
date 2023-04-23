@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">641994826117-2it0obanl398fcv12kptpsvkj3mboepv.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">641994826117</string>
+    <string name="google_api_key" translatable="false">AIzaSyC6n-SgW_ZU4URinxY9bIfw5x9j4rq0shg</string>
+    <string name="google_app_id" translatable="false">1:641994826117:android:e10b08a426d98684e324ec</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC6n-SgW_ZU4URinxY9bIfw5x9j4rq0shg</string>
+    <string name="google_storage_bucket" translatable="false">travelnaja-flutter-project.appspot.com</string>
+    <string name="project_id" translatable="false">travelnaja-flutter-project</string>
+</resources>
