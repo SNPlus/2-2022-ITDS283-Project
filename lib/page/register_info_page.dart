@@ -21,6 +21,8 @@ class _RegisterPageState extends State<RegisterPage> {
     String password = _passwordController.text;
     String confirmPassword = _confirmPasswordController.text;
 
+   
+
     if (email.isNotEmpty && password.isNotEmpty && confirmPassword.isNotEmpty) {
       if (password == confirmPassword) {
         try {
@@ -42,6 +44,13 @@ class _RegisterPageState extends State<RegisterPage> {
             _errorMessage = e.message!; // Update error message if any
           });
         }
+        Navigator.of(context).push(
+          MaterialPageRoute(
+              builder: (context) => ProfilePage(
+                    email: '',
+                    password: '',
+                  )),
+        );
       } else {
         // Show a Snackbar with error message
         ScaffoldMessenger.of(context).showSnackBar(
@@ -55,6 +64,8 @@ class _RegisterPageState extends State<RegisterPage> {
         _errorMessage = 'All fields are required';
       });
     }
+    
+                  
   }
 
   @override
@@ -101,9 +112,17 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             SizedBox(height: 24),
             ElevatedButton(
+              
               onPressed: _onRegisterButtonPressed,
-              child: Text('REGISTER'),
-            ),
+              child: Text(style: TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255)),'REGISTER'),
+            style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                        primary:
+                            Color.fromARGB(255, 3, 14, 94), // Background color
+                      ),),
             SizedBox(height: 16),
             Text(
               _errorMessage,
@@ -115,27 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.only(
                   top: 20,
                 ),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) => ProfilePage(
-                                email: '',
-                                password: '',
-                              )),
-                    );
-                  },
-                  child: Text(
-                      style:
-                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                      'Sign Up'),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    primary: Color.fromARGB(255, 3, 14, 94), // Background color
-                  ),
-                ),
+               
               ),
             ),
           ],

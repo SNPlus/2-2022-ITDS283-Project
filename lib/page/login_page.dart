@@ -5,11 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:itds283_travel_naja_project/page/profile_user_1.dart';
 // import 'package:week12/page/home_page.dart';
 
-
 class Login_Page_1 extends StatelessWidget {
   final String email;
   final String password;
-  Login_Page_1({super.key, required this.email ,required this.password});
+  Login_Page_1({super.key, required this.email, required this.password});
   //สร้าง Text Controller
   TextEditingController user_email = TextEditingController();
   TextEditingController user_password = TextEditingController();
@@ -80,19 +79,18 @@ class Login_Page_1 extends StatelessWidget {
                     controller: user_email,
                     obscureText: false,
                     decoration: InputDecoration(
-                      filled: true, 
+                      filled: true,
                       fillColor: Color.fromARGB(255, 255, 255, 255),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 3, color: Colors.greenAccent), 
+                        borderSide:
+                            BorderSide(width: 3, color: Colors.greenAccent),
                         borderRadius: BorderRadius.circular(50.0),
                       ),
-
                       labelText: 'Email',
                     ),
                   ),
                 ),
-                
+
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 5, right: 240),
@@ -113,13 +111,13 @@ class Login_Page_1 extends StatelessWidget {
                   width: 300.0,
                   child: TextField(
                     controller: user_password,
-                    obscureText: false,
+                    obscureText: true,
                     decoration: InputDecoration(
-                      filled: true, 
+                      filled: true,
                       fillColor: Color.fromARGB(255, 255, 255, 255),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 3, color: Colors.greenAccent), 
+                        borderSide:
+                            BorderSide(width: 3, color: Colors.greenAccent),
                         borderRadius: BorderRadius.circular(50.0),
                       ),
                       labelText: 'Password',
@@ -138,12 +136,15 @@ class Login_Page_1 extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                               builder: (context) => ProfilePage(
-                                    email: (user_email.text),password: (user_password.text),
+                                    email: (user_email.text),
+                                    password: (user_password.text),
                                   )),
                         );
                       },
-                      child: Text(style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255)),'Login'),
+                      child: Text(
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 255, 255, 255)),
+                          'Login'),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
